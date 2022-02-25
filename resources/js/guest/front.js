@@ -29,10 +29,14 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-
+// aggiungiamo l'import del file router.js
+import router from "./router";
 import App from './App.vue';
 
 const app = new Vue({
     el: '#app',
-    render: h => h(App) /* Vue vammi a montare tutto su App.vue */
+    /* Vue vammi a montare tutto su App.vue */
+    render: h => h(App), 
+    // aggiungiamo l'oggetto router all'istanza Vue
+	router
 });

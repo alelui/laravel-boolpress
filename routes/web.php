@@ -20,11 +20,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//area pribata
 Route::prefix("admin")->namespace("Admin")->middleware("auth")->group(function() {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource("posts", "PostController");
     Route::resource("categories", "CategoryController");
     Route::resource("tags", "TagController");
 });
+
+//area publlica - !!!importatnte metre questa rotta per ultima!!!
+Route::get("{any?}", function() {
+    return view("front");
+})->where("any", ".*");
 
 
